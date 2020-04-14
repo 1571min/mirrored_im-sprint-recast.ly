@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React from 'react';
 
 const VideoListEntry = (props) => {
-  const [data] = useState(props);
   return (
     <div className="video-list-entry">
-      {console.dir(data)}
       <div className="media-left media-middle">
-        <img className="media-object" src={data.url} alt="" />
+        <img
+          className="media-object"
+          src={props.video.snippet.thumbnails.default.url}
+          alt=""
+        />
       </div>
       <div className="media-body">
-        <div className="video-list-entry-title">{data.title}</div>
-        <div className="video-list-entry-detail">{data.description}</div>
+        <div className="video-list-entry-title">
+          {props.video.snippet.title}
+        </div>
+        <div className="video-list-entry-detail">
+          {props.video.snippet.description}
+        </div>
       </div>
     </div>
   );
