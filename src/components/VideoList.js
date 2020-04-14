@@ -5,10 +5,10 @@ import VideoListEntry from './VideoListEntry';
 import { fakeData } from './__test__/fakeData';
 console.log(fakeData);
 
-const VideoList = () => {
+const VideoList = (props) => {
   return (
     <div className="video-list media">
-      {fakeData.map((ele, idx) => (
+      {props.videos.map((ele, idx) => (
         <VideoListEntry video={ele} key={idx} />
       ))}
     </div>
