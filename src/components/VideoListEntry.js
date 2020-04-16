@@ -1,8 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const VideoListEntry = (props) => {
   return (
-    <div className="video-list-entry">
+    <div
+      className="video-list-entry"
+      onClick={() => props.clickVideo(props.video)}
+    >
       <div className="media-left media-middle">
         <img
           className="media-object"

@@ -9,17 +9,24 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentVideo: "",
+      currentVideo: fakeData[0],
       videoList: fakeData,
     };
-    this.serchClick = this.serchClick.bind(this);
+    this.searchClick = this.searchClick.bind(this);
+    this.clickVideo = this.clickVideo.bind(this);
   }
 
   componentDidMount() {
-    this.serchClick("codestates", 5, YOUTUBE_API_KEY);
+    this.searchClick("codestates", 5, YOUTUBE_API_KEY);
   }
 
-  serchClick(query, max, key) {
+  clickVideo(video) {
+    this.setState({
+      currentVideo: video,
+    });
+  }
+
+  searchClick(query, max, key) {
     console.log(query, max, key);
     console.log(searchYouTube);
     searchYouTube({ query, max, key }, (data) => {
@@ -33,12 +40,15 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Nav searchVideo={this.serchClick} />{" "}
+        <Nav searchVideo={this.searchClick} />{" "}
         <div className="col-md-7">
           <VideoPlayer video={this.state.currentVideo} />{" "}
         </div>{" "}
         <div className="col-md-5">
-          <VideoList videos={this.state.videoList} />{" "}
+          <VideoList
+            videos={this.state.videoList}
+            clickVideo={this.clickVideo}
+          />{" "}
         </div>{" "}
       </div>
     );
