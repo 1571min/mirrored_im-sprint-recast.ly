@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 const VideoListEntry = (props) => {
   return (
-    <div
+    <li
       className="video-list-entry"
       onClick={() => props.clickVideo(props.video)}
     >
@@ -21,7 +21,14 @@ const VideoListEntry = (props) => {
           {props.video.snippet.description}
         </div>
       </div>
-    </div>
+      <button
+        onClick={() => {
+          props.watchLaterClick(props.video);
+        }}
+      >
+        나중에 보기
+      </button>
+    </li>
   );
 };
 

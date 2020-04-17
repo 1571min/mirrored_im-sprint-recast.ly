@@ -1,9 +1,9 @@
-import React from "react";
-import { YOUTUBE_API_KEY } from "../../config/youtube";
+import React from 'react';
+import { YOUTUBE_API_KEY } from '../../config/youtube';
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: '' };
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -22,7 +22,7 @@ class Search extends React.Component {
         />
         <button
           onClick={() => {
-            this.props.searchVideo(this.state.value, 5, YOUTUBE_API_KEY);
+            this.props.searchVideo(this.state.value, 10, YOUTUBE_API_KEY);
           }}
           className="btn hidden-sm-down"
         >

@@ -1,12 +1,11 @@
-import React from "react";
+import React from 'react';
 
 const VideoPlayer = (props) => (
   <div className="video-player">
     <div className="embed-responsive embed-responsive-16by9">
-      {console.dir(props)}
       <iframe
         className="embed-responsive-item"
-        src={"https://www.youtube.com/embed/" + props.video.id.videoId}
+        src={'https://www.youtube.com/embed/' + props.video.id.videoId}
         allowFullScreen
       ></iframe>
     </div>
